@@ -1,0 +1,14 @@
+server:
+  port: 52640
+
+spring:
+  application:
+    name: eureka-turbine
+
+turbine:
+  app-config: eureka-discovery-ribbon, eureka-discovery-feign
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: new String("default")
+  #更改turbine连接的默认uri ,默认为actuator/hystrix.stream
+  instanceUrlSuffix: hystrix.stream

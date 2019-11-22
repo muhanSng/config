@@ -1,0 +1,5 @@
+server:
+  port: 52601
+
+# 配置客户端输出演示用
+info: local-config-client-dev

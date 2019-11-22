@@ -1,0 +1,52 @@
+aa: 你猜啊，就不告诉你
+myIp: 172.26.212.167
+eureka:
+  instance:
+    hostname: localhost
+    # 表示eureka client间隔多久去拉取服务注册信息，默认为30秒，如果要迅速获取服务注册状态，可以缩小该值
+    lease-renewal-interval-in-seconds: 15
+    # 表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance。
+    # 默认为90秒
+    # 如果该值太大，则很可能将流量转发过去的时候，该instance已经不存活了。
+    # 如果该值设置太小了，则instance则很可能因为临时的网络抖动而被摘除掉。
+    # 该值至少应该大于 leaseRenewalIntervalInSeconds
+    lease-expiration-duration-in-seconds: 45
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9527/eureka/
+
+spring:
+  datasource:
+    jdbc-url: jdbc:mysql://${myIp}:3306/db?useUnicode=true&characterEncoding=utf8
+    username: muhan
+    password: muhan123
+    provider:
+      jdbc-url: jdbc:mysql://${myIp}:3306/db1?useUnicode=true&characterEncoding=utf8
+      username: muhan
+      password: muhan123
+    consumer:
+      jdbc-url: jdbc:mysql://${myIp}:3306/db2?useUnicode=true&characterEncoding=utf8
+      username: muhan
+      password: muhan123
+
+  rabbitmq:
+    host: ${myIp}
+    port: 5672
+    username: admin
+    password: admin
+
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+
+
+fdfs:
+  so-timeout: 1501
+  connect-timeout: 2000
+  thumb-image:             #缩略图生成参数
+    width: 150
+    height: 150
+  tracker-list:            #TrackerList参数,支持多个
+    - 172.26.212.167:22122
+  web-server-url: http://172.26.212.167
+
