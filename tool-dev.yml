@@ -19,7 +19,7 @@ spring:
           destination: stream-topic
           group: stream
           producer:
-            partition-key-expression: 1 
+            partition-key-expression: headers['partitionKey'] 
             partition-count: 2 
             delayed-exchange: true
   # 开启链路追踪
