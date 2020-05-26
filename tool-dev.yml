@@ -11,14 +11,14 @@ spring:
       bindings:
         stream-input:
           destination: stream-topic
-          group: stream
-          consumer: 
-            partitioned: true
+          #group: stream
+          #consumer: 
+            #partitioned: true
         stream-output:
           destination: stream-topic
-          producer:
-            partition-key-expression: 0
-            partition-count: 2 
+          #producer:
+            #partition-key-expression: 0
+            #partition-count: 2 
   # 开启链路追踪
   sleuth:
     web:
