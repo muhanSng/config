@@ -4,6 +4,24 @@ feign:
   hystrix:
     enabled: true
 spring:
+  cloud:
+    stream: 
+      instance-count: 1 
+      instance-index: 0 
+      bindings:
+        stream-input:
+          destination: stream-topic
+          group: stream
+          consumer: 
+            partitioned: true
+            delayed-exchange: true
+        stream-output:
+          destination: stream-topic
+          group: stream
+          producer:
+            partition-key-expression: 1 
+            partition-count: 2 
+            delayed-exchange: true
   # 开启链路追踪
   sleuth:
     web:
