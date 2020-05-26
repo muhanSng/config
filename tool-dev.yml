@@ -6,19 +6,25 @@ feign:
 spring:
   cloud:
     stream: 
+      rabbit:
+        bindings:
+          stream-input:
+            consumer:
+              delayed-exchange: true
+          stream-output:
+            producer:
+              delayed-exchange: true
       instance-count: 1 
       instance-index: 0 
       bindings:
         stream-input:
           destination: stream-topic
           #group: stream
-          consumer: 
-            delayed-exchange: true
+          #consumer: 
             #partitioned: true
         stream-output:
           destination: stream-topic
-          producer:
-            delayed-exchange: true
+          #producer:
             #partition-key-expression: 0
             #partition-count: 2 
   # 开启链路追踪
