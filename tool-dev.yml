@@ -17,7 +17,7 @@ spring:
         stream-output:
           destination: stream-topic
           producer:
-            partition-key-expression: header["uu"]
+            partition-key-expression: 0
             partition-count: 2 
   # 开启链路追踪
   sleuth:
