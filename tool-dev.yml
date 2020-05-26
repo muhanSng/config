@@ -1,3 +1,16 @@
 name: test config
 
+feign:
+  hystrix:
+    enabled: true
+    
+turbine:
+  app-config: tool
+  cluster-name-expression: new String("default")
+  combine-host-port: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream # 或者'*'
