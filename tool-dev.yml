@@ -12,11 +12,13 @@ spring:
         stream-input:
           destination: stream-topic
           #group: stream
-          #consumer: 
+          consumer: 
+            delayed-exchange: true
             #partitioned: true
         stream-output:
           destination: stream-topic
-          #producer:
+          producer:
+            delayed-exchange: true
             #partition-key-expression: 0
             #partition-count: 2 
   # 开启链路追踪
