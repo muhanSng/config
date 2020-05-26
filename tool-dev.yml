@@ -3,6 +3,28 @@ name: test config
 feign:
   hystrix:
     enabled: true
+spring:
+  # 开启链路追踪
+  sleuth:
+    web:
+      client:
+      	enabled: true
+    sampler:
+      probability: 1 # 配置采样比例，默认为 0.1
+  # zipkin 地址
+  zipkin:
+    base-url: http://111.231.255.138:9411
+    # 开启 zipkin
+    enabled: true
+    # 追踪消息的发送类型
+    sender:
+      type: rabbit
+      
+  rabbitmq:
+    host: 111.231.255.138
+    port: 5672
+    username: rabbit
+    password: rabbit
     
 turbine:
   app-config: tool
