@@ -17,8 +17,8 @@ spring:
     # 开启 zipkin
     enabled: true
     # 追踪消息的发送类型
-    sender:
-      type: rabbit
+    #sender:
+      #type: rabbit
       
   rabbitmq:
     host: 111.231.255.138
