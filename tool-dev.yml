@@ -8,7 +8,7 @@ spring:
   sleuth:
     web:
       client:
-      	enabled: true
+        enabled: true
     sampler:
       probability: 1 # 配置采样比例，默认为 0.1
   # zipkin 地址
