@@ -1,4 +1,4 @@
-name: test config change1
+name: test config change2
 
 feign:
   hystrix:
